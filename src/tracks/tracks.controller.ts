@@ -9,44 +9,44 @@ import {
     Res,
 } from '@nestjs/common';
 import { Response } from 'express';
-import { UsersService } from './users.service';
-import { CreateUserDto } from './dto/create-user.dto';
-import { UpdatePasswordDto } from './dto/update-user.dto';
+import { TracksService } from './tracks.service';
+import { CreateTrackDto } from './dto/create-track.dto';
+import { UpdateTrackDto } from './dto/update-track.dto';
 
 @Controller()
-export class UsersController {
-    constructor(private readonly usersService: UsersService) { }
+export class TracksController {
+    constructor(private readonly tracksService: TracksService) { }
 
     @Get()
     getAll() {
-        return this.usersService.getAll();
+        return this.tracksService.getAll();
     }
 
     @Get(':id')
     getById(@Param('id') id: string, @Res() res: Response) {
-        const data = this.usersService.getById(id);
+        const data = this.tracksService.getById(id);
         res.status(data.statusCode).send(data.message)
     }
 
     @Post()
-    create(@Body() createUserDto: CreateUserDto, @Res() res: Response) {
-        const data = this.usersService.create(createUserDto)
+    create(@Body() createTrackDto: CreateTrackDto, @Res() res: Response) {
+        const data = this.tracksService.create(createTrackDto)
         res.status(data.statusCode).send(data.message)
     }
 
     @Put(':id')
     update(
         @Param('id') id: string,
-        @Body() updatePasswordDto: UpdatePasswordDto,
+        @Body() updateTrackDto: UpdateTrackDto,
         @Res() res: Response
     ) {
-        const data = this.usersService.update(id, updatePasswordDto)
+        const data = this.tracksService.update(id, updateTrackDto)
         res.status(data.statusCode).send(data.message)
     }
 
     @Delete(':id')
     delete(@Param('id') id: string, @Res() res: Response) {
-        const data = this.usersService.delete(id);
+        const data = this.tracksService.delete(id);
         res.status(data.statusCode).send(data.message)
     }
 }
