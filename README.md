@@ -3,12 +3,12 @@
 ## Prerequisites
 
 - Git - [Download & Install Git](https://git-scm.com/downloads).
-- Node.js - [Download & Install Node.js](https://nodejs.org/en/download/) and the npm package manager.
+- Node.js - [Download & Install Node.js](https://nodejs.org/en/download/) and the npm package manager. I use v20.5.0
 
 ## Downloading
 
 ```
-git clone {repository URL}
+git clone https://github.com/Maiev93/nodejs2024Q1-service
 ```
 
 ## Installing NPM modules
@@ -20,12 +20,13 @@ npm install
 ## Running application
 
 ```
-npm start
+npm run start
 ```
+## Running application in dev mode
 
-After starting the app on port (4000 as default) you can open
-in your browser OpenAPI documentation by typing http://localhost:4000/doc/.
-For more information about OpenAPI/Swagger please visit https://swagger.io/.
+```
+npm run start:dev
+```
 
 ## Testing
 
